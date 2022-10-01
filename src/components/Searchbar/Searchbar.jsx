@@ -25,22 +25,22 @@ export const Searchbar = ({onSubmit}) => {
     }
 
     return <header className={css.Searchbar}>
-            <form className={css.SearchForm} onSubmit={handleSubmit}>
-                <button type="submit" className={css.SearchForm_button}>
-                    <span className={css.SearchForm_button_label}><BsSearch /></span>
-    </button>
+                <form className={css.SearchForm} onSubmit={handleSubmit}>
+                    <button type="submit" className={css.SearchForm_button}>
+                        <span className={css.SearchForm_button_label}><BsSearch /></span>
+                    </button>
 
-    <input
-        className={css.SearchForm_input}
-        type="text"
-        autoComplete="off"
-        autoFocus
-        placeholder="Search images and photos"
-        value={value}
-        onChange={handleSearchValue}
-    />
-  </form>
-</header>
+                    <input
+                        className={css.SearchForm_input}
+                        type="text"
+                        autoComplete="off"
+                        autoFocus
+                        placeholder="Search images and photos"
+                        value={value}
+                        onChange={handleSearchValue}
+                    />
+                </form>
+    </header>
 }
 
 // export class Searchbar extends React.Component {
