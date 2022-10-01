@@ -7,6 +7,36 @@ import PropTypes from 'prop-types';
 const modalRoot = document.querySelector('#modal-root')
 
 
+// export const Modal = (onClose) => {
+
+//     useEffect(() => {
+//         window.addEventListener('keydown', handleKeyDown)
+//     }, [handleKeyDown])
+
+//     const handleKeyDown = (event) => {
+//         if (event.code === 'Escape') {
+//                 onClose();
+//             }
+//     }
+
+//     const handleBackdropClick = (event) => {
+//         if (event.currentTarget === event.target) {
+//             console.log("Click on backdrop");
+//             onClose();
+//         }
+//     }
+
+
+//     return createPortal(<div className={css.Overlay} onClick={handleBackdropClick}>
+//         <div className={css.Modal}>
+//             {this.props.children}
+//         </div>
+//     </div>, modalRoot)
+
+// }
+
+
+
 export class Modal extends React.Component {
 
     componentDidMount() {

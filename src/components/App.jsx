@@ -3,13 +3,39 @@ import { Searchbar } from "./Searchbar/Searchbar";
 import { ImageGallery } from "./ImageGallery/ImageGallery";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import css from '../Styles.module.css';
-// import { ImageGalleryItem } from './ImageGalleryItem/ImageGalleryItem';
 import { ImagePendingView } from 'components/ImagePendingView/ImagePandingView';
 import { ImageLoadingView } from 'components/ImageLoadingView/ImageLoadingView';
 import { ImageErrorView } from 'components/ImageErrorView/ImageErrorView';
 import { fetchImages } from 'Servises/Pixabay-api';
 import { ButtonLoadMore } from 'components/ButtonLoadMore/ButtonLoadMore';
+
+// export const App = () => {
+
+//    return ( <div style={{
+//                           display: 'flex',
+//                           flexDirection: 'column',
+//                           justifyContent: 'center',
+//                           alignItems: 'center',
+//                           fontSize: 24,
+//                           color: '#010101',
+//                           paddingTop: '80px',
+//                         }}
+//       >
+//       <Searchbar onSubmit={this.handleFormSubmit} />
+      
+//       { images.hits.length !== 0 && <>
+//         <ImageGallery images={this.state.images.hits } />
+//         {isLoadMore && <ButtonLoadMore onClick={this.loadMore} />}
+//       </>
+//       }
+//       { images.hits.length === 0 && !isLoading && <ImagePendingView />}
+//       {isLoading && <ImageLoadingView />}
+//       {error && <ImageErrorView wrongValue={error.message} />}
+      
+//         <ToastContainer theme="dark" position="bottom-center" autoClose={3000} />
+//       </div>)
+// }
+
 
 
 export class App extends React.Component {
@@ -81,10 +107,10 @@ export class App extends React.Component {
   }
 
   // отримує значення value від Searchbar
-  handleFormSubmit = ({value}) => {
+  handleFormSubmit = (value) => {
         // console.log('this.state.value =>', this.state.value);
         // console.log('this.state.images =>', this.state.images);
-        
+        console.log(typeof value)
     if (value === this.state.value) {
         toast.error("Enter new search value or press 'Load More' !");
         return
@@ -130,95 +156,6 @@ export class App extends React.Component {
       
         <ToastContainer theme="dark" position="bottom-center" autoClose={3000} />
       </div>)
-      
-
   }
-
-
 }
 
-
-
-  // render() {
-  //   const { error, status, isLoadMore } = this.state;
-    
-
-  //   if (status === 'idle') {
-  //     return <>
-        // <Searchbar onSubmit={this.handleFormSubmit} />
-        // <ImagePendingView />
-  //     </>
-  //   }
-
-  //   if (status === 'pending') {
-  //     return <>
-  //     <Searchbar onSubmit={this.handleFormSubmit} />
-      // <ImageLoadingView />
-  //     </>
-  //   }
-
-  //   if (status === 'rejected') {
-  //     return <>
-  //       <Searchbar onSubmit={this.handleFormSubmit} />
-  //       <ImageErrorView wrongValue={error.message} />
-  //     </>
-
-  //   }
-
-  //   if (status === 'resolved') {
-  //     return ( <div
-  //     style={{
-  //       display: 'flex',
-  //       flexDirection: 'column',
-  //       justifyContent: 'center',
-  //       alignItems: 'center',
-  //       fontSize: 24,
-  //       color: '#010101'
-  //     }}
-  //     >
-  //       <Searchbar onSubmit={this.handleFormSubmit} />
-  //       <ImageGallery images={this.state.images.hits } />
-  //       {isLoadMore && <ButtonLoadMore onClick={this.loadMore} />}
-  //       <ToastContainer theme="dark" position="bottom-center" autoClose={3000} />
-  //     </div>)
-  //   }
-  // }
-
-
-
-
-//   state = {
-//     value: '',
-//   }
-
-  // // отримує значення value від Searchbar
-  // handleFormSubmit = ({value}) => {
-  //   console.log('this.state.value =>', this.state.value);
-  //   console.log('this.state.images =>', this.state.images);
-  //   return this.setState({
-  //     value, 
-  //   });
-  // }
-
-//   render() {  return (
-    // <div
-    //   style={{
-    //     display: 'flex',
-    //     flexDirection: 'column',
-    //     justifyContent: 'center',
-    //     alignItems: 'center',
-    //     fontSize: 24,
-    //     color: '#010101'
-    //   }}
-    // >
-      // <Searchbar onSubmit={this.handleFormSubmit} />
-//       {/* <ToastContainer position="top-center" autoClose={3000}/> */}
-    
-//       <ImageGallery searchValue={ this.state.value} />
-    
-      
-//     </div>
-      
-//   );}
-
-// }
