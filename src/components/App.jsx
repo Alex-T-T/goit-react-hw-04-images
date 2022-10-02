@@ -61,7 +61,7 @@ export const App = () => {
           }
         })
         .catch(error => {
-          setError({ error })
+          setError(error)
           Promise.reject(new Error(`${error.message}`))
           toast.error(` We can't find a "${value}"! `);
         })
