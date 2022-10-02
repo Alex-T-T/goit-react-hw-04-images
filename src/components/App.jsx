@@ -21,7 +21,6 @@ export const App = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
-  const [perPage] = useState(12);
   const [isLoadMore, setIsLoadMore] = useState(true);
 
 
@@ -34,13 +33,16 @@ export const App = () => {
     setIsLoading(true);
     setError(null);
   
+    const perPage = 12;
+
     fetchImages(value, page, perPage)
       .then(({ total, totalHits, hits }) => {
-        setImages({
+        setImages(images => ({
           hits: [...images.hits, ...hits],
           totalHits,
           total,
-        });
+        })
+        );
         setIsLoading(false);
   
         const totalPages = Math.ceil(totalHits / perPage);
@@ -55,10 +57,9 @@ export const App = () => {
           setIsLoadMore(false);
         }
 
-
-          if (totalHits === 0) {
-            return Promise.reject(new Error(`It's sad, but we have a problem! We can't find a "${value}"! Change your request please!`))
-          }
+        if (totalHits === 0) {
+          return Promise.reject(new Error(`It's sad, but we have a problem! We can't find a "${value}"! Change your request please!`))
+        }
         })
         .catch(error => {
           setError(error)
