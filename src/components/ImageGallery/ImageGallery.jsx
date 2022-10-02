@@ -24,7 +24,7 @@ ImageGallery.propTypes = {
         webformatURL: PropTypes.string.isRequired,
         largeImageURL: PropTypes.string.isRequired,
         tags: PropTypes.string.isRequired,
-      }))
+    }))
 }
 
 // export class ImageGallery extends React.Component {
